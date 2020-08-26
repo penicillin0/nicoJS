@@ -1,6 +1,6 @@
 class nicoJS
 	constructor: (params) ->
-		@version = '1.1.8'
+		@version = '1.1.8.1'
 
 		@timer    = null
 		@interval = null
@@ -77,7 +77,7 @@ class nicoJS
 		for i in [0...len]
 			end = @comments[i].ele.getBoundingClientRect().width * -1
 			if @comments[i].x > end
-				@comments[i].x -= 4
+				@comments[i].x -= 10
 				@comments[i].ele.style.left = @comments[i].x + 'px'
 
 	##
