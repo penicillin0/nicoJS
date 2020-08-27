@@ -1,6 +1,6 @@
 class nicoJS
 	constructor: (params) ->
-		@version = '1.2.3'
+		@version = '1.2.4'
 
 		@timer    = null
 		@interval = null
@@ -81,6 +81,11 @@ class nicoJS
 			if @comments[i].x > end
 				@comments[i].x -= @comments[i].speed
 				@comments[i].ele.style.left = @comments[i].x + 'px'
+			if @comments[i].x < end
+				# @commentsから流れ終わったコメントを削除
+				@comments.pop()
+				# @appから流れ終わったコメントのdomを削除
+				@app.removeChild @comments[i].ele
 
 	##
 	# コメントを待機
