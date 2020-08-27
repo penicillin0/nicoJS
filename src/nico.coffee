@@ -14,6 +14,8 @@ class nicoJS
 		@width     = params.width     || 500
 		@height    = params.height    || 300
 		@speed     = params.speed     || 4
+		@band_list = shuffle [0...Math.floor(@height / @font_size)]
+		@band_index = 0
 
 		# 描画
 		@render()
@@ -56,8 +58,9 @@ class nicoJS
 		font_size = params.size      || @font_size
 		speed     = params.speed     || @speed
 		x         = @width
-		y         = Math.random() * (@height - @font_size)
+		y         = @band_list[@band_index] / @band_list.length * (@height - @font_size)
 		ele       = document.createElement 'div'
+		@band_index = @band_index + 1
 
 		ele.innerHTML        = text
 		ele.style.position   = 'absolute'
@@ -123,3 +126,15 @@ class nicoJS
 try
 	module.exports = nicoJS
 catch e
+
+# arrayをシャッフルする関数
+shuffle = (array) ->
+  i = array.length
+  if i is 0 then return false
+  while --i
+    j = Math.floor Math.random() * (i + 1)
+    tmpi = array[i]
+    tmpj = array[j]
+    array[i] = tmpj
+    array[j] = tmpi
+  return

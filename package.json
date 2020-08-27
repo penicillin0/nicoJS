@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Prog24/nicoJS.git"
+    "url": "https://github.com/penicillin0/nicoJS.git"
   },
   "scripts": {
     "build": "gulp",
