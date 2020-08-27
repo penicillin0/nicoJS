@@ -51,7 +51,7 @@ class nicoJS
 	# @param font_size : フォントサイズ[option]
 	##
 	send: (params) ->
-    text      = params.text      || ''
+		text      = params.text      || ''
 		color     = params.color     || @color
 		font_size = params.size      || @font_size
 		speed     = params.speed     || @speed
