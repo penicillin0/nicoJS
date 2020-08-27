@@ -13,6 +13,7 @@ class nicoJS
 		@color     = params.color     || '#fff'
 		@width     = params.width     || 500
 		@height    = params.height    || 300
+		@speed     = params.speed     || 4
 
 		# 描画
 		@render()
@@ -49,7 +50,7 @@ class nicoJS
 	# @param color     : 色[option]
 	# @param font_size : フォントサイズ[option]
 	##
-	send: (text, color, font_size) ->
+	send: (text, color, font_size, speed) ->
 		font_size = font_size || @font_size
 		color     = color     || @color
 		text      = text      || ''
@@ -67,6 +68,7 @@ class nicoJS
 
 		@app.appendChild ele
 		@comments.push { ele: ele, x: x, y: y }
+		@speed = speed
 
 	##
 	# コメントを流す
@@ -77,7 +79,7 @@ class nicoJS
 		for i in [0...len]
 			end = @comments[i].ele.getBoundingClientRect().width * -1
 			if @comments[i].x > end
-				@comments[i].x -= 10
+				@comments[i].x -= @speed
 				@comments[i].ele.style.left = @comments[i].x + 'px'
 
 	##

@@ -22,6 +22,7 @@ let nico = new nicoJS({
     height    : 400,
     font_size : 50,     // opt
     color     : '#fff'  // opt
+    speed     : 4       // opt
 })
 ```
 
@@ -31,7 +32,7 @@ let nico = new nicoJS({
 nico.listen()
 
 // コメント送信
-nico.send('Hello World.', '色[option]', 'フォントサイズ[option]')
+nico.send('Hello World.', '色[option]', 'フォントサイズ[option]', 'speed[option]')
 ```
 
 特定のコメントを流し続ける
