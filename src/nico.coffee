@@ -62,10 +62,6 @@ class nicoJS
 		y         =  @band_list[@band_index] *  colum_height
 		ele       = document.createElement 'div'
 		@band_index = (@band_index + 1) % @band_list.length
-		console.log(@band_list)
-		console.log(@band_index)
-		console.log("要素:" + @band_list[@band_index])
-		console.log("高さ:" + y)
 		
 
 		ele.innerHTML        = text
