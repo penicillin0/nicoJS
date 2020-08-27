@@ -1,6 +1,6 @@
 class nicoJS
 	constructor: (params) ->
-		@version = '1.2.0'
+		@version = '1.2.1'
 
 		@timer    = null
 		@interval = null
@@ -53,6 +53,7 @@ class nicoJS
 	send: (text, color, font_size, speed) ->
 		font_size = font_size || @font_size
 		color     = color     || @color
+		speed     = speed     || @speed
 		text      = text      || ''
 		x         = @width
 		y         = Math.random() * (@height - @font_size)
@@ -67,8 +68,7 @@ class nicoJS
 		ele.style.color      = color
 
 		@app.appendChild ele
-		@comments.push { ele: ele, x: x, y: y }
-		@speed = speed
+		@comments.push { ele: ele, x: x, y: y, speed: speed }
 
 	##
 	# コメントを流す
@@ -79,7 +79,7 @@ class nicoJS
 		for i in [0...len]
 			end = @comments[i].ele.getBoundingClientRect().width * -1
 			if @comments[i].x > end
-				@comments[i].x -= @speed
+				@comments[i].x -= @comment[i].speed
 				@comments[i].ele.style.left = @comments[i].x + 'px'
 
 	##

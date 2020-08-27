@@ -1,6 +1,6 @@
 {
   "name": "nicojs",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "ニコニコ風コメントを実装するライブラリ",
   "main": "lib/nico.js",
   "author": "yuki540",
