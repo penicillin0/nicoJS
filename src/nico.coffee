@@ -58,7 +58,7 @@ class nicoJS
 		font_size = params.size      || @font_size
 		speed     = params.speed     || @speed
 		x         = @width
-		y         = @band_list[@band_index] / @band_list.length * (@height - @font_size)
+		y         = @band_list[@band_index] * (@height - @font_size) / @band_list.length
 		ele       = document.createElement 'div'
 		@band_index = @band_index + 1
 
@@ -130,11 +130,11 @@ catch e
 # arrayをシャッフルする関数
 shuffle = (array) ->
   i = array.length
-  if i is 0 then return false
+  if i is 0 then return array
   while --i
     j = Math.floor Math.random() * (i + 1)
     tmpi = array[i]
     tmpj = array[j]
     array[i] = tmpj
     array[j] = tmpi
-  return
+  return array
