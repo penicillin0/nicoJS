@@ -1,6 +1,6 @@
 class nicoJS
 	constructor: (params) ->
-		@version = '1.2.3'
+		@version = '1.2.4'
 
 		@timer    = null
 		@interval = null
@@ -68,7 +68,7 @@ class nicoJS
 		ele.style.color      = color
 
 		@app.appendChild ele
-		@comments.push { ele: ele, x: x, y: y, speed: speed }
+		@comments.push { ele: ele, x: x, y: y, speed: speed, dflg: 0 }
 
 	##
 	# コメントを流す
@@ -78,9 +78,15 @@ class nicoJS
 
 		for i in [0...len]
 			end = @comments[i].ele.getBoundingClientRect().width * -1
-			if @comments[i].x > end
+			if @comments[i].x >= end
 				@comments[i].x -= @comments[i].speed
 				@comments[i].ele.style.left = @comments[i].x + 'px'
+			if @comments[i].x < end & @comments[i].dflg == 0
+				console.log "hoge"
+				console.log @comments[i]
+				# @appから流れ終わったコメントのdomを削除
+				@app.removeChild @comments[i].ele
+				@comments[i].dflg = 1
 
 	##
 	# コメントを待機
