@@ -82,8 +82,6 @@ class nicoJS
 				@comments[i].x -= @comments[i].speed
 				@comments[i].ele.style.left = @comments[i].x + 'px'
 			if @comments[i].x < end & @comments[i].dflg == 0
-				console.log "hoge"
-				console.log @comments[i]
 				# @appから流れ終わったコメントのdomを削除
 				@app.removeChild @comments[i].ele
 				@comments[i].dflg = 1
