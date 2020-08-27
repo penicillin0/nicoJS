@@ -1,6 +1,6 @@
 class nicoJS
 	constructor: (params) ->
-		@version = '1.1.9'
+		@version = '1.2.0'
 
 		@timer    = null
 		@interval = null
