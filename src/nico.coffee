@@ -53,16 +53,15 @@ class nicoJS
 	# @param font_size : フォントサイズ[option]
 	##
 	send: (params) ->
-		console.log(@band_list)
-		
 		text      = params.text      || ''
 		color     = params.color     || @color
 		font_size = params.size      || @font_size
 		speed     = params.speed     || @speed
 		x         = @width
-		y         = @band_list[@band_index] * (@height - @font_size) / @band_list.length
+		colum_height = Math.floor((@height - @font_size) / @band_list.length)
+		y         =  @band_list[@band_index] *  colum_height
 		ele       = document.createElement 'div'
-		@band_index = @band_index + 1
+		@band_index = (@band_index + 1) % @band_list.length
 
 		ele.innerHTML        = text
 		ele.style.position   = 'absolute'
