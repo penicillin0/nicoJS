@@ -1,6 +1,6 @@
 class nicoJS
 	constructor: (params) ->
-		@version = '1.2.2'
+		@version = '1.2.3'
 
 		@timer    = null
 		@interval = null
@@ -50,11 +50,11 @@ class nicoJS
 	# @param color     : 色[option]
 	# @param font_size : フォントサイズ[option]
 	##
-	send: (text, color, font_size, speed) ->
-		font_size = font_size || @font_size
-		color     = color     || @color
-		speed     = speed     || @speed
-		text      = text      || ''
+	send: (params) ->
+    text      = params.text      || ''
+		color     = params.color     || @color
+		font_size = params.size      || @font_size
+		speed     = params.speed     || @speed
 		x         = @width
 		y         = Math.random() * (@height - @font_size)
 		ele       = document.createElement 'div'
