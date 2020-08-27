@@ -86,6 +86,7 @@ class nicoJS
 				console.log @comments[i]
 				# @appから流れ終わったコメントのdomを削除
 				@app.removeChild @comments[i].ele
+				@comments.pop()
 
 	##
 	# コメントを待機
