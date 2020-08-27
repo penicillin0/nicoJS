@@ -78,7 +78,7 @@ class nicoJS
 
 		for i in [0...len]
 			end = @comments[i].ele.getBoundingClientRect().width * -1
-			if @comments[i].x > end
+			if @comments[i].x >= end
 				@comments[i].x -= @comments[i].speed
 				@comments[i].ele.style.left = @comments[i].x + 'px'
 			if @comments[i].x < end
