@@ -53,6 +53,7 @@ class nicoJS
 	# @param font_size : フォントサイズ[option]
 	##
 	send: (params) ->
+		console.log(params)
 		text      = params.text      || ''
 		color     = params.color     || @color
 		font_size = params.size      || @font_size
